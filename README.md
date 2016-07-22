@@ -20,3 +20,19 @@ LONG POLLING:
 
 WEB SOCKETS AND SOCKET.IO:
 # socketIO_chatroom
+
+socket.io is a javascript library for realtime web applications. 
+It enables realtime, bi-directional communication between web clients and servers. 
+It has two parts: 
+a client side library that runs in the browser, 
+and a server side library for node.js.
+
+
+PUBLIC FOLDER:
+  The public folder holds the
+  
+  
+
+
+server.js:
+  app.use(express.static('public')): serves static files.
