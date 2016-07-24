@@ -1,3 +1,5 @@
+
+// Set up express server
 var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
@@ -15,7 +17,7 @@ server.listen(port, function () {
 var numUsers = 0;
 
 io.on('connection', function (socket) {
-    numUsers += 1;
+    var addedUser = false;
     console.log('Client connected');
     
     var addedUser = false;
@@ -47,7 +49,6 @@ io.on('connection', function (socket) {
     })
     
     
-    
     socket.broadcast.emit('new message', {
       username: socket.username,
     });
@@ -62,7 +63,8 @@ io.on('connection', function (socket) {
     // when the client emits 'typing', we broadcast it to others
     socket.on('typing', function () {
         socket.broadcast.emit('typing',{
-            username: socket.username
+            username: socket.username,
+            numUsers: numUsers
         });
   });
 });
